@@ -1,3 +1,6 @@
 runpod>=1.6.2
-transformers>=4.36.2
-accelerate>=0.25.0
+transformers>=4.49.0
+accelerate>=1.2.1
+git+https://github.com/huggingface/diffusers.git
+pillow>=10.0.0
+qwen-vl-utils>=0.0.8

@@ -17,7 +17,7 @@ if [ -z "$1" ]; then
 fi
 
 DOCKER_USERNAME=$1
-IMAGE_NAME="cached-model-worker"
+IMAGE_NAME="qwen-edit-image-cache"
 IMAGE_TAG="${2:-latest}"
 FULL_IMAGE="${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
 
@@ -37,7 +37,7 @@ echo ""
 
 # Build
 echo -e "${YELLOW}Building Docker image...${NC}"
-docker build -t "${FULL_IMAGE}" .
+docker buildx build --platform=linux/amd64 -t "${FULL_IMAGE}" .
 echo -e "${GREEN}Build successful${NC}"
 echo ""
 
