@@ -78,10 +78,8 @@ print(f"[ModelStore] Resolved local model path: {LOCAL_MODEL_PATH}", flush=True)
 model = QwenImageEditPlusPipeline.from_pretrained(
     LOCAL_MODEL_PATH,
     torch_dtype=torch.bfloat16,
-    # device_map="cuda"
-    # Це прибере помилку зі схемами, оскільки Flash Attention 2
-    # має власний шлях ініціалізації
-    attn_implementation="flash_attention_2"
+    # Flash Attention 2 is ignored by this model
+    # attn_implementation="flash_attention_2"
 ).to("cuda")
 
 print("[ModelStore] Model loaded from local snapshot", flush=True)
